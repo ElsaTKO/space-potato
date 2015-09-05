@@ -1,0 +1,22 @@
+html {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  background-color: #ccc;
+  background-image:linear-gradient(#fff, #ccc);
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+img {
+  display: inline-block;
+  padding: 3rem;
+}
+
+audio {
+  display: block;
+  width: 15rem;
+  margin: 0 auto;
+}
