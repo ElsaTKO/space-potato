@@ -3,14 +3,21 @@
   <head>
     <title>Space Potato</title>
     <link rel="stylesheet" media="all" href="space-potato.css"/>
-
   </head>
   <body>
-    <h1>Space Potato</h1>
-    
+    <div class="container">
+      <img src="images/spacecore.png" alt="Space Core" id="spacecore">
+      <img src="images/factcore.png" alt="Fact Core" id="factcore">
+    </div>
+
+    <!-- background track -->
+    <audio id="radio" controls loop>
+      <source src="audio/looping_radio_mix.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- scripts -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
-    <script type="text/javascript" src="js/space-potato.js"></script>
+    <script type="text/javascript" src="space-potato.js"></script>
   </body>
 </html>
