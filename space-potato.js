@@ -5,6 +5,22 @@ $(document).ready( function() {
 var spacecore = $("#spacecore");
 var factcore = $("#factcore");
 
+var character;
+var others;
+var quote_queue;
+
+var SPACE_QUOTES = $(".space audio");
+var FACT_QUOTES = $(".fact audio");
+
+function clone(quotes_array) {
+  var cloned_quotes = $.extend(true, [], quotes_array);
+  return cloned_quotes;
+}
+
+function remove(quotes_array) {
+  quotes_array.shift();
+}
+
 function playRadio() {
   var radio = document.getElementById("radio");
   radio.currentTime = 3.5;
@@ -13,9 +29,13 @@ function playRadio() {
 }
 
 $(".char-img").click(function() {
-  var character = $(this);
-  var others = $(".char-img").not($(this));
+  character = $(this);
+  others = $(".char-img").not($(this));
+  changeSelection(character, others);
+  prepareQuotes(character);
+});
 
+function changeSelection(character, others) {
   others.removeClass("neutral");
   character.removeClass("neutral");
 
@@ -24,21 +44,23 @@ $(".char-img").click(function() {
 
   others.removeClass("selected");
   character.addClass("selected");
+}
 
-  // prepare audio clips
-  // assemble arrays for each char
-  // swap out active array depending on selected
-
-});
+function prepareQuotes(character) {
+  if (character[0].id === "spacecore") {
+    quote_queue = clone(SPACE_QUOTES);
+  } else if (character[0].id === "factcore") {
+    quote_queue = clone(FACT_QUOTES);
+  }
+  return quote_queue;
+}
 
 $(document).keypress(function() {
   if (spacecore.hasClass("selected")) {
-    console.log("space roar");
-    var spaaace = document.getElementById("space9");
-    spaaace.currentTime = 0;
-    spaaace.play();
+    var space = document.getElementById("space7");
+    space.currentTime = 0;
+    space.play();
   } else if (factcore.hasClass("selected")) {
-    console.log("fact roar");
     var whales = document.getElementById("fact5");
     whales.currentTime = 0;
     whales.play();
