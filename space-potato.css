@@ -13,10 +13,68 @@ html {
 img {
   display: inline-block;
   padding: 3rem;
+
+  -webkit-animation: dance 1s ease-in-out infinite;
+  -moz-animation: dance 1s ease-in-out infinite;
+  animation: dance 1s ease-in-out infinite;
 }
 
 audio {
   display: block;
   width: 15rem;
   margin: 0 auto;
+}
+
+@-webkit-keyframes dance {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(0.5deg);
+    transform: rotate(0.5deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes dance {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  25% {
+    -webkit-transform: rotate(0.5deg);
+    transform: rotate(0.5deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  75% {
+    -webkit-transform: rotate(-1deg);
+    transform: rotate(-1deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 }
