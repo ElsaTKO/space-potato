@@ -17,7 +17,7 @@ function clone(quotes_array) {
   return cloned_quotes;
 }
 
-function remove(quotes_array) {
+function removeAQuote(quotes_array) {
   quotes_array.shift();
 }
 
@@ -64,8 +64,11 @@ function identifyCharacter(character) {
 
 function playQuote() {
   var quote = quote_queue[0];
+  console.log(quote);
+  removeAQuote(quote_queue);
   quote.currentTime = 0;
   quote.play();
+  console.log(quote_queue.length);
 }
 
 $(document).keypress(function() {
