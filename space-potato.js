@@ -62,14 +62,12 @@ function identifyCharacter(character) {
   return name;
 }
 
+function playQuote() {
+  var quote = quote_queue[0];
+  quote.currentTime = 0;
+  quote.play();
+}
+
 $(document).keypress(function() {
-  if (spacecore.hasClass("selected")) {
-    var space = document.getElementById("space7");
-    space.currentTime = 0;
-    space.play();
-  } else if (factcore.hasClass("selected")) {
-    var whales = document.getElementById("fact5");
-    whales.currentTime = 0;
-    whales.play();
-  }
+  playQuote();
 });
