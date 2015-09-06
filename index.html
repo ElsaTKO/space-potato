@@ -6,9 +6,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
   </head>
   <body>
+    <!-- background track -->
+    <audio id="radio" controls loop>
+      <source src="audio/looping_radio_mix.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- character images -->
     <div class="container">
-      <img src="images/spacecore.png" alt="Space Core" class="char-img" id="spacecore">
-      <img src="images/factcore.png" alt="Fact Core" class="char-img" id="factcore">
+      <img src="images/spacecore.png" alt="Space Core" class="char-img neutral" id="spacecore">
+      <img src="images/factcore.png" alt="Fact Core" class="char-img neutral" id="factcore">
     </div>
 
     <!-- audio embeds -->
@@ -75,10 +81,7 @@
       </div>
     </div>
 
-    <!-- background track -->
-    <audio id="radio" controls loop>
-      <source src="audio/looping_radio_mix.mp3" type="audio/mpeg">
-    </audio>
+
 
     <!-- scripts -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
