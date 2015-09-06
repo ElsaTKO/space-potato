@@ -10,42 +10,66 @@ html {
   text-align: center;
 }
 
-img {
+.char-img {
   display: inline-block;
-  padding: 3rem;
-
+  padding: 4rem;
   -webkit-animation: dance 1s ease-in-out infinite;
   -moz-animation: dance 1s ease-in-out infinite;
   animation: dance 1s ease-in-out infinite;
 }
 
+.char-img:hover,
+.char-img:active {
+  -webkit-animation-name: bob-float, bob;
+  -moz-animation-name: bob-float, bob;
+  animation-name: bob-float, bob;
+  -webkit-animation-duration: .3s, 1.5s;
+  -moz-animation-duration: .3s, 1.5s;
+  animation-duration: .3s, 1.5s;
+  -webkit-animation-delay: 0s, .3s;
+  -moz-animation-delay: 0s, .3s;
+  animation-delay: 0s, .3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  -moz-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  -moz-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  -moz-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
+/* radio controls */
 audio {
   display: block;
   width: 15rem;
   margin: 0 auto;
 }
 
+
+/* ANIMATIONS */
+/* dance */
 @-webkit-keyframes dance {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   25% {
-    -webkit-transform: rotate(0.5deg);
-    transform: rotate(0.5deg);
+    -webkit-transform: rotate(0.25deg);
+    transform: rotate(0.25deg);
   }
-
   50% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   75% {
-    -webkit-transform: rotate(-1deg);
-    transform: rotate(-1deg);
+    -webkit-transform: rotate(-0.5deg);
+    transform: rotate(-0.5deg);
   }
-
   100% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -57,24 +81,67 @@ audio {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   25% {
-    -webkit-transform: rotate(0.5deg);
-    transform: rotate(0.5deg);
+    -webkit-transform: rotate(0.25deg);
+    transform: rotate(0.25deg);
   }
-
   50% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
   75% {
-    -webkit-transform: rotate(-1deg);
-    transform: rotate(-1deg);
+    -webkit-transform: rotate(-0.5deg);
+    transform: rotate(-0.5deg);
   }
-
   100% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
+  }
+}
+
+/* bob */
+@-webkit-keyframes bob {
+  0% {
+    -webkit-transform: translateY(-2rem);
+    transform: translateY(-2rem);
+  }
+
+  50% {
+    -webkit-transform: translateY(-1rem);
+    transform: translateY(-1rem);
+  }
+
+  100% {
+    -webkit-transform: translateY(-2rem);
+    transform: translateY(-2rem);
+  }
+}
+
+@keyframes bob {
+  0% {
+    -webkit-transform: translateY(-2rem);
+    transform: translateY(-2rem);
+  }
+  50% {
+    -webkit-transform: translateY(-1rem);
+    transform: translateY(-1rem);
+  }
+  100% {
+    -webkit-transform: translateY(-2rem);
+    transform: translateY(-2rem);
+  }
+}
+
+@-webkit-keyframes bob-float {
+  100% {
+    -webkit-transform: translateY(-2rem);
+    transform: translateY(-2rem);
+  }
+}
+
+@keyframes bob-float {
+  100% {
+    -webkit-transform: translateY(-2rem);
+    transform: translateY(-2rem);
   }
 }
