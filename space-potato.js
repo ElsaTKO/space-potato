@@ -8,6 +8,7 @@ var factcore = $("#factcore");
 var character;
 var others;
 var quote_queue;
+var previous_quote;
 
 var SPACE_QUOTES = $(".space audio");
 var FACT_QUOTES = $(".fact audio");
@@ -62,8 +63,15 @@ function identifyCharacter(character) {
   return name;
 }
 
+function stopPrevQuote() {
+  if (typeof last_quote !== "undefined") {
+    last_quote.pause();
+  }
+}
+
 function playQuote() {
   var quote = quote_queue[0];
+  last_quote = quote;
   console.log(quote);
   removeAQuote(quote_queue);
   quote.currentTime = 0;
@@ -72,5 +80,6 @@ function playQuote() {
 }
 
 $(document).keypress(function() {
+  stopPrevQuote();
   playQuote();
 });
