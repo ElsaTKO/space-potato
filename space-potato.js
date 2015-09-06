@@ -47,12 +47,19 @@ function changeSelection(character, others) {
 }
 
 function prepareQuotes(character) {
-  if (character[0].id === "spacecore") {
+  var character_name = identifyCharacter(character);
+
+  if (character_name == "spacecore") {
     quote_queue = clone(SPACE_QUOTES);
-  } else if (character[0].id === "factcore") {
+  } else if (character_name == "factcore") {
     quote_queue = clone(FACT_QUOTES);
   }
   return quote_queue;
+}
+
+function identifyCharacter(character) {
+  var name = character[0].id;
+  return name;
 }
 
 $(document).keypress(function() {
