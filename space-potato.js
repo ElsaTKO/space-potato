@@ -122,7 +122,12 @@ function findText(quote) {
 }
 
 function appendText(words) {
-    textbox[0].innerHTML = words.join(" ");
+  textbox.empty();
+  for (i = 0; i < words.length; i++) {
+    var line = $("<p>");
+    line.append(words[i]);
+    textbox.append(line);
+  }
 }
 
 $(document).keypress(function() {
