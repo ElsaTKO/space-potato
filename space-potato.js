@@ -117,8 +117,8 @@ function playQuote() {
 
 function findText(quote) {
   var quote_id = quote.id; // "space1"
-  var text = AudioTextMap[quote_id]; // space1_text
-  return text;
+  var words = AudioTextMap[quote_id]; // space1_text
+  return words;
 }
 
 function appendText(words) {
@@ -149,18 +149,69 @@ space2_text[0] = "Orbit.";
 space2_text[1] = "Space orbit.";
 space2_text[2] = "In my space suit.";
 
+var space3_text = [];
+space3_text[0] = "Come here, space.";
+space3_text[1] = "I have a secret for you.";
+space3_text[2] = "No, come closer.";
+
+var space4_text = [];
+space4_text[0] = "Lady.";
+space4_text[1] = "I love space.";
+space4_text[2] = "I know. I know. I know. Spell it:";
+space4_text[3] = "Space. \"S\"...\"P\"...";
+space4_text[4] = "\"ACE\"!";
+space4_text[5] = "Space.";
+space4_text[6] = "Space.";
+
+
+var space5_text = [];
+space5_text[0] = "Space. Space.";
+space5_text[1] = "Space. Space.";
+space5_text[2] = "Comets. Stars.";
+space5_text[3] = "Galaxies. Orion.";
+
+var space6_text = [];
+space6_text[0] = "Space court.";
+space6_text[1] = "For people in space.";
+space6_text[2] = "The judge space sun presiding.";
+space6_text[3] = "Bam.";
+space6_text[4] = "Guilty.";
+space6_text[5] = "Of being in space.";
+space6_text[6] = "I'm in space.";
+
+var space7_text = [];
+space7_text[0] = "Where am I?";
+space7_text[1] = "Guess.";
+space7_text[2] = "Guess. Guess. Guess.";
+space7_text[3] = "I'm in space.";
+
+var space8_text = [];
+space8_text[0] = "There's a star.";
+space8_text[1] = "There's another one.";
+space8_text[2] = "Star.";
+space8_text[3] = "Star.";
+space8_text[4] = "Star.";
+space8_text[5] = "Star. Star.";
+space8_text[6] = "Star.";
+
+var space9_text = [];
+space9_text[0] = "SPAAAAAAAAAA";
+space9_text[1] = "AAAAAAAAAAAA";
+space9_text[2] = "AAAAAAAAAAAA";
+space9_text[3] = "AAAAAAAAACE!";
+
 
 // MAPPING
 var AudioTextMap = {
   space1: space1_text,
-  space2: space2_text
-  // "space3": space3_text,
-  // "space4": space4_text,
-  // "space5": space5_text,
-  // "space6": space6_text,
-  // "space7": space7_text,
-  // "space8": space8_text,
-  // "space9": space9_text,
+  space2: space2_text,
+  "space3": space3_text,
+  "space4": space4_text,
+  "space5": space5_text,
+  "space6": space6_text,
+  "space7": space7_text,
+  "space8": space8_text,
+  "space9": space9_text
   // "fact1": fact1_text,
   // "fact2": fact2_text,
   // "fact3": fact3_text,
