@@ -138,6 +138,7 @@ $(document).keypress(function() {
 
 
 // QUOTE TEXT
+// space core
 var space1_text = [];
 space1_text[0] = "Dad! I'm in space!";
 space1_text[1] = "\"I'm proud of you, son.\"";
@@ -200,6 +201,34 @@ space9_text[1] = "AAAAAAAAAAAA";
 space9_text[2] = "AAAAAAAAAAAA";
 space9_text[3] = "AAAAAAAAACE!";
 
+// fact core
+var fact1_text = [];
+fact1_text[0] = "Pants were invented by sailors in the sixteenth century to avoid Poseidon's wrath. It was believed that the sight of naked sailors angered the sea god.";
+
+var fact2_text = [];
+fact2_text[0] = "89% of magic tricks are not magic. Technically they are sorcery.";
+
+var fact3_text = [];
+fact3_text[0] = "William Shakespeare did not exist. His plays were masterminded in 1589 by Francis Bacon, who used a Ouija board to enslave play-writing ghosts.";
+
+var fact4_text = [];
+fact4_text[0] = "It is incorrectly noted that Thomas Edison invented push-ups in 1878. Nikolai Tesla had in fact patented the activity three years earlier, under the name \"Tesla-cize.\"";
+
+var fact5_text = [];
+fact5_text[0] = "Whales are twice as intelligent and three times as delicious as humans.";
+
+var fact6_text = [];
+fact6_text[0] = "The first commercial airline flight took to the air in 1914. Everyone involved screamed the entire way.";
+
+var fact7_text = [];
+fact7_text[0] = "In Greek myth, Prometheus stole fire from the Gods and gave it to humankind. The jewelry he kept for himself.";
+
+var fact8_text = [];
+fact8_text[0] = "The first person to prove that cow's milk is drinkable was very, very thirsty.";
+
+var fact9_text = [];
+fact9_text[0] = "At some point in their lives 1 in 6 children will be abducted by the Dutch.";
+
 
 // MAPPING
 var AudioTextMap = {
@@ -211,14 +240,14 @@ var AudioTextMap = {
   "space6": space6_text,
   "space7": space7_text,
   "space8": space8_text,
-  "space9": space9_text
-  // "fact1": fact1_text,
-  // "fact2": fact2_text,
-  // "fact3": fact3_text,
-  // "fact4": fact4_text,
-  // "fact5": fact5_text,
-  // "fact6": fact6_text,
-  // "fact7": fact7_text,
-  // "fact8": fact8_text,
-  // "fact9": fact9_text
+  "space9": space9_text,
+  "fact1": fact1_text,
+  "fact2": fact2_text,
+  "fact3": fact3_text,
+  "fact4": fact4_text,
+  "fact5": fact5_text,
+  "fact6": fact6_text,
+  "fact7": fact7_text,
+  "fact8": fact8_text,
+  "fact9": fact9_text
 };
