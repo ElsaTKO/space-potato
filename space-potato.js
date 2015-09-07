@@ -10,7 +10,7 @@ var character;
 var character_name;
 var others;
 var quote_queue;
-var previous_quote;
+var last_quote;
 
 var SPACE_QUOTES = $(".space audio");
 var FACT_QUOTES = $(".fact audio");
@@ -109,6 +109,7 @@ function playQuote() {
 
   var words = findText(quote);
   appendText(words);
+  console.log(words);
 
   quote.currentTime = 0;
   quote.play();
