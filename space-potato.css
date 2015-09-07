@@ -10,6 +10,15 @@ html {
   text-align: center;
 }
 
+#textbox {
+  height: 50%;
+  width: 50%;
+  background: red;
+  position: absolute;
+  padding: 2rem;
+  display: none;
+}
+
 .char-img {
   display: inline-block;
   padding: 4rem;
