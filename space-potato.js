@@ -13,23 +13,23 @@ var previous_quote;
 var SPACE_QUOTES = $(".space audio");
 var FACT_QUOTES = $(".fact audio");
 
-function clone(quotes_array) {
-  var cloned_quotes = $.extend(true, [], quotes_array);
+function clone(array) {
+  var cloned_quotes = $.extend(true, [], array);
   return cloned_quotes;
 }
 
-function shuffle(quotes_array) {
-    for (var i = quotes_array.length - 1; i > 0; i--) {
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
-        var temp = quotes_array[i];
-        quotes_array[i] = quotes_array[j];
-        quotes_array[j] = temp;
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
-    return quotes_array;
+    return array;
 }
 
-function removeAQuote(quotes_array) {
-  quotes_array.shift();
+function removeAQuote(array) {
+  array.shift();
 }
 
 function playRadio() {
@@ -46,7 +46,7 @@ $(".char-img").click(function() {
   prepareQuotes(character);
 });
 
-function changeSelection(character, others) {
+function changeSelection() {
   others.removeClass("neutral");
   character.removeClass("neutral");
 
@@ -57,7 +57,7 @@ function changeSelection(character, others) {
   character.addClass("selected");
 }
 
-function prepareQuotes(character) {
+function prepareQuotes() {
   var character_name = identifyCharacter(character);
   var cloned_quotes;
   if (character_name == "spacecore") {
@@ -80,7 +80,14 @@ function stopPrevQuote() {
   }
 }
 
+function repopulateQuotesHuh() {
+  if (quote_queue.length === 0) {
+    prepareQuotes();
+  }
+}
+
 function playQuote() {
+  repopulateQuotesHuh();
   var quote = quote_queue[0];
   last_quote = quote;
   console.log(quote);
