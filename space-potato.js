@@ -18,6 +18,16 @@ function clone(quotes_array) {
   return cloned_quotes;
 }
 
+function shuffle(quotes_array) {
+    for (var i = quotes_array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = quotes_array[i];
+        quotes_array[i] = quotes_array[j];
+        quotes_array[j] = temp;
+    }
+    return quotes_array;
+}
+
 function removeAQuote(quotes_array) {
   quotes_array.shift();
 }
@@ -49,12 +59,13 @@ function changeSelection(character, others) {
 
 function prepareQuotes(character) {
   var character_name = identifyCharacter(character);
-
+  var cloned_quotes;
   if (character_name == "spacecore") {
-    quote_queue = clone(SPACE_QUOTES);
+    cloned_quotes = clone(SPACE_QUOTES);
   } else if (character_name == "factcore") {
-    quote_queue = clone(FACT_QUOTES);
+    cloned_quotes = clone(FACT_QUOTES);
   }
+  quote_queue = shuffle(cloned_quotes);
   return quote_queue;
 }
 
