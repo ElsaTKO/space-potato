@@ -4,8 +4,10 @@ $(document).ready( function() {
 
 var spacecore = $("#spacecore");
 var factcore = $("#factcore");
+var textbox = $("#textbox");
 
 var character;
+var character_name;
 var others;
 var quote_queue;
 var previous_quote;
@@ -42,8 +44,9 @@ function playRadio() {
 $(".char-img").click(function() {
   character = $(this);
   others = $(".char-img").not($(this));
-  changeSelection(character, others);
-  prepareQuotes(character);
+  identifyCharacter(character);
+  changeSelection();
+  prepareQuotes();
 });
 
 function changeSelection() {
@@ -55,10 +58,22 @@ function changeSelection() {
 
   others.removeClass("selected");
   character.addClass("selected");
+
+  alignTextbox();
+}
+
+function alignTextbox() {
+  textbox.show();
+  if (character_name == "spacecore") {
+    textbox.css("left", "");
+    textbox.css("right", "0");
+  } else if (character_name == "factcore") {
+    textbox.css("right", "");
+    textbox.css("left", "0");
+  }
 }
 
 function prepareQuotes() {
-  var character_name = identifyCharacter(character);
   var cloned_quotes;
   if (character_name == "spacecore") {
     cloned_quotes = clone(SPACE_QUOTES);
@@ -69,9 +84,8 @@ function prepareQuotes() {
   return quote_queue;
 }
 
-function identifyCharacter(character) {
-  var name = character[0].id;
-  return name;
+function identifyCharacter() {
+  character_name = character[0].id;
 }
 
 function stopPrevQuote() {
@@ -101,3 +115,12 @@ $(document).keypress(function() {
   stopPrevQuote();
   playQuote();
 });
+
+
+
+// QUOTE TEXT
+var space1_text = [];
+space1_text[0] = "Dad! I'm in space!";
+space1_text[1] = "\"I'm proud of you, son.\"";
+space1_text[2] = "Dad, are you space?";
+space1_text[3] = "\"Yes. Now we are a family again.\"";
