@@ -106,9 +106,23 @@ function playQuote() {
   last_quote = quote;
   console.log(quote);
   removeAQuote(quote_queue);
+
+  var words = findText(quote);
+  appendText(words);
+
   quote.currentTime = 0;
   quote.play();
   console.log(quote_queue.length);
+}
+
+function findText(quote) {
+  var quote_id = quote.id; // "space1"
+  var text = AudioTextMap[quote_id]; // space1_text
+  return text;
+}
+
+function appendText(words) {
+    textbox[0].innerHTML = words.join(" ");
 }
 
 $(document).keypress(function() {
@@ -124,3 +138,31 @@ space1_text[0] = "Dad! I'm in space!";
 space1_text[1] = "\"I'm proud of you, son.\"";
 space1_text[2] = "Dad, are you space?";
 space1_text[3] = "\"Yes. Now we are a family again.\"";
+
+var space2_text = [];
+space2_text[0] = "Orbit.";
+space2_text[1] = "Space orbit.";
+space2_text[2] = "In my space suit.";
+
+
+// MAPPING
+var AudioTextMap = {
+  space1: space1_text,
+  space2: space2_text
+  // "space3": space3_text,
+  // "space4": space4_text,
+  // "space5": space5_text,
+  // "space6": space6_text,
+  // "space7": space7_text,
+  // "space8": space8_text,
+  // "space9": space9_text,
+  // "fact1": fact1_text,
+  // "fact2": fact2_text,
+  // "fact3": fact3_text,
+  // "fact4": fact4_text,
+  // "fact5": fact5_text,
+  // "fact6": fact6_text,
+  // "fact7": fact7_text,
+  // "fact8": fact8_text,
+  // "fact9": fact9_text
+};
