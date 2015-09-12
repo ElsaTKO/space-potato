@@ -469,27 +469,50 @@ fact3_timing[6] = 5.5;
 
 
 var fact4_text = [];
-fact4_text[0] = "It is incorrectly noted that Thomas Edison invented push-ups in 1878. Nikolai Tesla had in fact patented the activity three years earlier, under the name \"Tesla-cize.\"";
+fact4_text[0] = "It is incorrectly noted that";
+fact4_text[1] = "Thomas Edison invented push-ups";
+fact4_text[2] = "in 1878.";
+fact4_text[3] = "Nikolai Tesla had in fact";
+fact4_text[4] = "patented the activity three years earlier,";
+fact4_text[5] = "under the name";
+fact4_text[6] = "\"Tesla-cize.\"";
 
-var fact4_timing = [];
+var fact4_timing = []; // DONE
 fact4_timing[0] = 0;
-fact4_timing[1] = 1;
+fact4_timing[1] = 0.75;
+fact4_timing[2] = 2;
+fact4_timing[3] = 3.25;
+fact4_timing[4] = 4.25;
+fact4_timing[5] = 6;
+fact4_timing[6] = 7;
 
 
 var fact5_text = [];
-fact5_text[0] = "Whales are twice as intelligent and three times as delicious as humans.";
+fact5_text[0] = "Whales";
+fact5_text[1] = "are twice as intelligent";
+fact5_text[2] = "and three times as delicious";
+fact5_text[3] = "as humans.";
 
-var fact5_timing = [];
+var fact5_timing = []; // DONE
 fact5_timing[0] = 0;
-fact5_timing[1] = 1;
+fact5_timing[1] = 0.25;
+fact5_timing[2] = 1;
+fact5_timing[3] = 2;
 
 
 var fact6_text = [];
-fact6_text[0] = "The first commercial airline flight took to the air in 1914. Everyone involved screamed the entire way.";
+fact6_text[0] = "The first commercial airline flight";
+fact6_text[1] = "took to the air";
+fact6_text[2] = "in 1914.";
+fact6_text[3] = "Everyone involved";
+fact6_text[4] = "screamed the entire way.";
 
-var fact6_timing = [];
+var fact6_timing = []; // DONE
 fact6_timing[0] = 0;
 fact6_timing[1] = 1;
+fact6_timing[2] = 1.5;
+fact6_timing[3] = 2.5;
+fact6_timing[4] = 3.25;
 
 
 var fact7_text = [];
