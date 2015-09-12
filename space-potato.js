@@ -1,5 +1,19 @@
 $(document).ready( function() {
   playRadio();
+
+  $("#jpId").jPlayer( {
+    ready: function () {
+      $(this).jPlayer("setMedia", {
+        mp3: audio_url
+      });
+    },
+    volume: 1,
+    supplied: "mp3",
+    swfPath: "/js",
+    consoleAlerts: true,
+    errorAlerts: true,
+    warningAlerts: true
+  });
 });
 
 var spacecore = $("#spacecore");
@@ -11,6 +25,13 @@ var character_name;
 var others;
 var quote_queue;
 var last_quote;
+
+var audio_url;
+// var jPlayah = $("#jpId");
+
+var words;
+var timing;
+var incrementor;
 
 var SPACE_QUOTES = $(".space audio");
 var FACT_QUOTES = $(".fact audio");
@@ -107,18 +128,58 @@ function playQuote() {
   console.log(quote);
   removeAQuote(quote_queue);
 
-  var words = findText(quote);
-  appendText(words);
+  words = findText(quote);
+  timing = findTiming(quote);
+  // appendText(words);
   console.log(words);
 
-  quote.currentTime = 0;
-  quote.play();
+  audio_url = getAudioSrc(quote);
+  $("#jpId").jPlayer("play", 0);
+
+  // quote.currentTime = 0;
+  // quote.play();
   console.log(quote_queue.length);
 }
+
+// $("#jpId").jPlayer( {
+//   ready: function () {
+//       $(this).jPlayer("setMedia", {
+//           mp3: audio_url
+//       });
+//   },
+//   volume: 1,
+//   supplied: "mp3",
+//   swfPath: "/js",
+//   consoleAlerts: true,
+//   errorAlerts: true,
+//   warningAlerts: true
+// });
+
+
+$("#jpId").bind($.jPlayer.event.timeupdate, function(event) {
+
+    if (event.jPlayer.status.currentTime >= timing[incrementor]) {
+
+      var line = $("<p>");
+      line.append(words[incrementor]);
+      textbox.append(line);
+
+      incrementor++;
+   }
+});
+
+function getAudioSrc(quote) {
+  // splitting on "audio" and then adding it back on
+  // because I have no idea what heroku's file structure looks like
+  var file_loc_in_audio_dir = quote.currentSrc.split("audio")[1]; // "/space_core/space01.mp3"
+  var url = "audio" + file_loc_in_audio_dir + ""; // "audio/space_core/space01.mp3"
+  return url;
+}
+
 // play quote through jPlayer
 // set media dynamically?
 
-// $("#jquery_jplayer_1").jPlayer("setMedia", {mp3: URL_VARIABLE_??? }).jPlayer("play");
+// $("#jpId").jPlayer("setMedia", {mp3: audio_url }).jPlayer("play");
 
 // $("#trackSelect").change(function(e) {
 //      my_trackName.text($(this).val());
@@ -129,9 +190,18 @@ function playQuote() {
 
 // Chell in the Rain version
 // -------------------------
-// $('#jpId').bind($.jPlayer.event.timeupdate, function(event) {
-//      $('#time').html($.jPlayer.convertTime(event.jPlayer.status.currentTime));
-//
+// $("#jpId").jPlayer( {
+//         ready: function () {
+//             $(this).jPlayer("setMedia", {
+//                 mp3: audio_url
+//             });
+//         },
+//         volume: 1,
+//         supplied: "mp3",
+//         swfPath: "/js"
+//     });
+
+// $("#jpId").bind($.jPlayer.event.timeupdate, function(event) {
 //      if (event.jPlayer.status.currentTime >= timings[currentTrigger] && nolyrics != true) {
 //          fireTrigger(currentTrigger);
 //          currentTrigger++;
@@ -139,6 +209,13 @@ function playQuote() {
 //
 //
 //   });
+
+
+
+
+
+
+
 
 // my version WIP
 // --------------
@@ -154,10 +231,15 @@ function playQuote() {
 
 function findText(quote) {
   var quote_id = quote.id; // "space1"
-  var words = AudioToTextAndTimingMap[quote_id]; // space1_text
-  // AudioToTextAndTimingMap[quote_id].text // space1_text
-  // AudioToTextAndTimingMap[quote_id].timing // space1_timing
+  // var words = AudioToTextAndTimingMap[quote_id]; // space1_text
+  var words = AudioToTextAndTimingMap[quote_id].text; // space1_text
   return words;
+}
+
+function findTiming(quote) {
+  var quote_id = quote.id; // "space1"
+  var timing = AudioToTextAndTimingMap[quote_id].timing; // space1_timing
+  return timing;
 }
 
 function appendText(words) {
@@ -169,9 +251,30 @@ function appendText(words) {
   }
 }
 
+// $(document).keypress(function() {
+//   stopPrevQuote();
+//   playQuote();
+// });
+
 $(document).keypress(function() {
   stopPrevQuote();
-  playQuote();
+  repopulateQuotesHuh();
+  var quote = quote_queue[0];
+  last_quote = quote;
+  console.log(quote);
+  removeAQuote(quote_queue);
+
+  words = findText(quote);
+  timing = findTiming(quote);
+  // appendText(words);
+  console.log(words);
+
+  audio_url = getAudioSrc(quote);
+  console.log(audio_url);
+  // playQuote();
+  incrementor = 0;
+  $("#jpId").jPlayer("setMedia", {mp3: audio_url}).jPlayer("play", 0);
+  // $("#jquery_jplayer_1").jPlayer("setMedia", {mp3: "/Music/a.mp3"}).jPlayer("play");
 });
 
 
