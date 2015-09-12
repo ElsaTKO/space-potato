@@ -9,10 +9,7 @@ $(document).ready( function() {
     },
     volume: 1,
     supplied: "mp3",
-    swfPath: "/js",
-    consoleAlerts: true,
-    errorAlerts: true,
-    warningAlerts: true
+    swfPath: "/js"
   });
 });
 
@@ -272,9 +269,9 @@ $(document).keypress(function() {
   audio_url = getAudioSrc(quote);
   console.log(audio_url);
   // playQuote();
+  textbox.empty();
   incrementor = 0;
-  $("#jpId").jPlayer("setMedia", {mp3: audio_url}).jPlayer("play", 0);
-  // $("#jquery_jplayer_1").jPlayer("setMedia", {mp3: "/Music/a.mp3"}).jPlayer("play");
+  $("#jpId").jPlayer("setMedia", { mp3: audio_url }).jPlayer("play", 0);
 });
 
 
@@ -289,9 +286,9 @@ space1_text[3] = "\"Yes. Now we are a family again.\"";
 
 var space1_timing = [];
 space1_timing[0] = 0;
-space1_timing[1] = 1;
-space1_timing[2] = 2;
-space1_timing[3] = 3;
+space1_timing[1] = 1.5;
+space1_timing[2] = 3.25;
+space1_timing[3] = 4.5;
 
 
 var space2_text = [];
@@ -301,8 +298,8 @@ space2_text[2] = "In my space suit.";
 
 var space2_timing = [];
 space2_timing[0] = 0;
-space2_timing[1] = 1;
-space2_timing[2] = 2;
+space2_timing[1] = 0.25;
+space2_timing[2] = 0.75;
 
 
 var space3_text = [];
@@ -312,8 +309,8 @@ space3_text[2] = "No, come closer.";
 
 var space3_timing = [];
 space3_timing[0] = 0;
-space3_timing[1] = 1;
-space3_timing[2] = 2;
+space3_timing[1] = 0.5;
+space3_timing[2] = 1.5;
 
 
 var space4_text = [];
@@ -327,11 +324,11 @@ space4_text[6] = "Space.";
 
 var space4_timing = [];
 space4_timing[0] = 0;
-space4_timing[1] = 1;
-space4_timing[2] = 2;
-space4_timing[3] = 3;
-space4_timing[4] = 4;
-space4_timing[5] = 5;
+space4_timing[1] = 0.25;
+space4_timing[2] = 1;
+space4_timing[3] = 2.5;
+space4_timing[4] = 4.5;
+space4_timing[5] = 5.25;
 space4_timing[6] = 6;
 
 
@@ -343,9 +340,9 @@ space5_text[3] = "Galaxies. Orion.";
 
 var space5_timing = [];
 space5_timing[0] = 0;
-space5_timing[1] = 1;
-space5_timing[2] = 2;
-space5_timing[3] = 3;
+space5_timing[1] = 0.25;
+space5_timing[2] = 0.75;
+space5_timing[3] = 1.25;
 
 
 var space6_text = [];
@@ -359,12 +356,12 @@ space6_text[6] = "I'm in space.";
 
 var space6_timing = [];
 space6_timing[0] = 0;
-space6_timing[1] = 1;
-space6_timing[2] = 2;
+space6_timing[1] = 0.5;
+space6_timing[2] = 1.25;
 space6_timing[3] = 3;
-space6_timing[4] = 4;
-space6_timing[5] = 5;
-space6_timing[6] = 6;
+space6_timing[4] = 3.5;
+space6_timing[5] = 4;
+space6_timing[6] = 5;
 
 
 var space7_text = [];
@@ -375,9 +372,9 @@ space7_text[3] = "I'm in space.";
 
 var space7_timing = [];
 space7_timing[0] = 0;
-space7_timing[1] = 1;
-space7_timing[2] = 2;
-space7_timing[3] = 3;
+space7_timing[1] = 0.25;
+space7_timing[2] = 0.75;
+space7_timing[3] = 1.75;
 
 
 var space8_text = [];
@@ -391,25 +388,25 @@ space8_text[6] = "Star.";
 
 var space8_timing = [];
 space8_timing[0] = 0;
-space8_timing[1] = 1;
-space8_timing[2] = 2;
-space8_timing[3] = 3;
-space8_timing[4] = 4;
-space8_timing[5] = 5;
-space8_timing[6] = 6;
+space8_timing[1] = 0.75;
+space8_timing[2] = 1.75;
+space8_timing[3] = 2.5;
+space8_timing[4] = 3.5;
+space8_timing[5] = 4.25;
+space8_timing[6] = 5.5;
 
 
 var space9_text = [];
-space9_text[0] = "SPAAAAAAAAAA";
-space9_text[1] = "AAAAAAAAAAAA";
-space9_text[2] = "AAAAAAAAAAAA";
-space9_text[3] = "AAAAAAAAACE!";
+space9_text[0] = "SPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+space9_text[1] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+space9_text[2] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+space9_text[3] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAACE!";
 
 var space9_timing = [];
 space9_timing[0] = 0;
-space9_timing[1] = 1;
-space9_timing[2] = 2;
-space9_timing[3] = 3;
+space9_timing[1] = 0.75;
+space9_timing[2] = 1.5;
+space9_timing[3] = 2.5;
 
 
 // fact core
