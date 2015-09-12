@@ -409,33 +409,111 @@ space9_timing[2] = 1.5;
 space9_timing[3] = 2.5;
 
 
+// factZ_timing[0] = 0;
+// factZ_timing[1] = 1;
+// factZ_timing[2] = 2;
+// factZ_timing[3] = 3;
+// factZ_timing[4] = 4;
+// factZ_timing[5] = 5;
+// factZ_timing[6] = 6;
+
 // fact core
 var fact1_text = [];
-fact1_text[0] = "Pants were invented by sailors in the sixteenth century to avoid Poseidon's wrath. It was believed that the sight of naked sailors angered the sea god.";
+fact1_text[0] = "Pants were invented";
+fact1_text[1] = "by sailors in the sixteenth century";
+fact1_text[2] = "to avoid Poseidon's wrath.";
+fact1_text[3] = "It was believed that";
+fact1_text[4] = "the sight of naked sailors";
+fact1_text[5] = "angered the sea god.";
+
+var fact1_timing = []; // DONE
+fact1_timing[0] = 0;
+fact1_timing[1] = 0.25;
+fact1_timing[2] = 1.5;
+fact1_timing[3] = 2.75;
+fact1_timing[4] = 3.5;
+fact1_timing[5] = 4.25;
+// fact1_timing[6] = 6;
+
 
 var fact2_text = [];
-fact2_text[0] = "89% of magic tricks are not magic. Technically they are sorcery.";
+fact2_text[0] = "89% of magic tricks";
+fact2_text[1] = "are not magic.";
+fact2_text[2] = "Technically";
+fact2_text[3] = "they are sorcery.";
+
+var fact2_timing = []; // DONE
+fact2_timing[0] = 0;
+fact2_timing[1] = 0.75;
+fact2_timing[2] = 1.75;
+fact2_timing[3] = 2.25;
+
 
 var fact3_text = [];
-fact3_text[0] = "William Shakespeare did not exist. His plays were masterminded in 1589 by Francis Bacon, who used a Ouija board to enslave play-writing ghosts.";
+fact3_text[0] = "William Shakespeare";
+fact3_text[1] = "did not exist.";
+fact3_text[2] = "His plays were masterminded";
+fact3_text[3] = "in 1589";
+fact3_text[4] = "by Francis Bacon,";
+fact3_text[5] = "who used a Ouija board";
+fact3_text[6] = "to enslave play-writing ghosts.";
+
+var fact3_timing = []; // DONE
+fact3_timing[0] = 0;
+fact3_timing[1] = 0.5;
+fact3_timing[2] = 1.5;
+fact3_timing[3] = 2.5;
+fact3_timing[4] = 3.5;
+fact3_timing[5] = 4.5;
+fact3_timing[6] = 5.5;
+
 
 var fact4_text = [];
 fact4_text[0] = "It is incorrectly noted that Thomas Edison invented push-ups in 1878. Nikolai Tesla had in fact patented the activity three years earlier, under the name \"Tesla-cize.\"";
 
+var fact4_timing = [];
+fact4_timing[0] = 0;
+fact4_timing[1] = 1;
+
+
 var fact5_text = [];
 fact5_text[0] = "Whales are twice as intelligent and three times as delicious as humans.";
+
+var fact5_timing = [];
+fact5_timing[0] = 0;
+fact5_timing[1] = 1;
+
 
 var fact6_text = [];
 fact6_text[0] = "The first commercial airline flight took to the air in 1914. Everyone involved screamed the entire way.";
 
+var fact6_timing = [];
+fact6_timing[0] = 0;
+fact6_timing[1] = 1;
+
+
 var fact7_text = [];
 fact7_text[0] = "In Greek myth, Prometheus stole fire from the Gods and gave it to humankind. The jewelry he kept for himself.";
+
+var fact7_timing = [];
+fact7_timing[0] = 0;
+fact7_timing[1] = 1;
+
 
 var fact8_text = [];
 fact8_text[0] = "The first person to prove that cow's milk is drinkable was very, very thirsty.";
 
+var fact8_timing = [];
+fact8_timing[0] = 0;
+fact8_timing[1] = 1;
+
+
 var fact9_text = [];
 fact9_text[0] = "At some point in their lives 1 in 6 children will be abducted by the Dutch.";
+
+var fact9_timing = [];
+fact9_timing[0] = 0;
+fact9_timing[1] = 1;
 
 
 // MAPPING
@@ -449,13 +527,13 @@ var AudioToTextAndTimingMap = {
   space7: { text: space7_text, timing: space7_timing },
   space8: { text: space8_text, timing: space8_timing },
   space9: { text: space9_text, timing: space9_timing },
-  fact1: fact1_text,
-  fact2: fact2_text,
-  fact3: fact3_text,
-  fact4: fact4_text,
-  fact5: fact5_text,
-  fact6: fact6_text,
-  fact7: fact7_text,
-  fact8: fact8_text,
-  fact9: fact9_text
+  fact1: { text: fact1_text, timing: fact1_timing },
+  fact2: { text: fact2_text, timing: fact2_timing },
+  fact3: { text: fact3_text, timing: fact3_timing },
+  fact4: { text: fact4_text, timing: fact4_timing },
+  fact5: { text: fact5_text, timing: fact5_timing },
+  fact6: { text: fact6_text, timing: fact6_timing },
+  fact7: { text: fact7_text, timing: fact7_timing },
+  fact8: { text: fact8_text, timing: fact8_timing },
+  fact9: { text: fact9_text, timing: fact9_timing }
 };
