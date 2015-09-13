@@ -24,7 +24,7 @@ var quote_queue;
 var last_quote;
 
 var audio_url;
-// var jPlayah = $("#jpId");
+var jPlayah = $("#jpId");
 
 var words;
 var timing;
@@ -56,7 +56,7 @@ function playRadio() {
   var radio = document.getElementById("radio");
   radio.currentTime = 3.5;
   radio.volume = 0.1;
-  // radio.play();
+  radio.play();
 }
 
 $(".char-img").click(function() {
@@ -68,6 +68,8 @@ $(".char-img").click(function() {
 });
 
 function changeSelection() {
+  $("#instructions").html("press any key");
+
   others.removeClass("neutral");
   character.removeClass("neutral");
 
@@ -85,9 +87,13 @@ function alignTextbox() {
   if (character_name == "spacecore") {
     textbox.css("left", "");
     textbox.css("right", "0");
+    textbox.css("text-align", "left");
+    textbox.css("color", "#A66F05");
   } else if (character_name == "factcore") {
     textbox.css("right", "");
     textbox.css("left", "0");
+    textbox.css("text-align", "right");
+    textbox.css("color", "#8B3F65");
   }
 }
 
@@ -106,39 +112,13 @@ function identifyCharacter() {
   character_name = character[0].id;
 }
 
-function stopPrevQuote() {
-  if (typeof last_quote !== "undefined") {
-    last_quote.pause();
-  }
-}
-
 function repopulateQuotesHuh() {
   if (quote_queue.length === 0) {
     prepareQuotes();
   }
 }
 
-function playQuote() {
-  repopulateQuotesHuh();
-  var quote = quote_queue[0];
-  last_quote = quote;
-  console.log(quote);
-  removeAQuote(quote_queue);
-
-  words = findText(quote);
-  timing = findTiming(quote);
-  // appendText(words);
-  console.log(words);
-
-  audio_url = getAudioSrc(quote);
-  $("#jpId").jPlayer("play", 0);
-
-  // quote.currentTime = 0;
-  // quote.play();
-  console.log(quote_queue.length);
-}
-
-$("#jpId").bind($.jPlayer.event.timeupdate, function(event) {
+jPlayah.bind($.jPlayer.event.timeupdate, function(event) {
   // trigger text according to audio timing
   if (event.jPlayer.status.currentTime >= timing[incrementor]) {
     // add text to textbox
@@ -170,17 +150,7 @@ function findTiming(quote) {
   return timing;
 }
 
-function appendText(words) {
-  textbox.empty();
-  for (i = 0; i < words.length; i++) {
-    var line = $("<p>");
-    line.append(words[i]);
-    textbox.append(line);
-  }
-}
-
 $(document).keypress(function() {
-  stopPrevQuote();
   repopulateQuotesHuh();
   var quote = quote_queue[0];
   last_quote = quote;
@@ -193,7 +163,7 @@ $(document).keypress(function() {
 
   textbox.empty(); // remove last quote text
   incrementor = 0; // start at beginning of text array
-  $("#jpId").jPlayer("setMedia", { mp3: audio_url }).jPlayer("play", 0); // play quote
+  jPlayah.jPlayer("setMedia", { mp3: audio_url }).jPlayer("play", 0); // play quote
 });
 
 
@@ -238,33 +208,43 @@ space3_timing[2] = 1.5;
 var space4_text = [];
 space4_text[0] = "Lady.";
 space4_text[1] = "I love space.";
-space4_text[2] = "I know. I know. I know. Spell it:";
-space4_text[3] = "Space. \"S\"...\"P\"...";
-space4_text[4] = "\"ACE\"!";
-space4_text[5] = "Space.";
+space4_text[2] = "I know. I know. I know.";
+space4_text[3] = "Spell it: Space.";
+space4_text[4] = "\"S\"...\"P\"...";
+space4_text[5] = "\"ACE\"!";
 space4_text[6] = "Space.";
+space4_text[7] = "Space.";
 
 var space4_timing = [];
 space4_timing[0] = 0;
 space4_timing[1] = 0.25;
 space4_timing[2] = 1;
-space4_timing[3] = 2.5;
-space4_timing[4] = 4.5;
-space4_timing[5] = 5.25;
-space4_timing[6] = 6;
+space4_timing[3] = 1.75;
+space4_timing[4] = 3;
+space4_timing[5] = 4.5;
+space4_timing[6] = 5.25;
+space4_timing[7] = 6;
 
 
 var space5_text = [];
-space5_text[0] = "Space. Space.";
-space5_text[1] = "Space. Space.";
-space5_text[2] = "Comets. Stars.";
-space5_text[3] = "Galaxies. Orion.";
+space5_text[0] = "Space.";
+space5_text[1] = "Space.";
+space5_text[2] = "Space.";
+space5_text[3] = "Space.";
+space5_text[4] = "Comets.";
+space5_text[5] = "Stars.";
+space5_text[6] = "Galaxies.";
+space5_text[7] = "Orion.";
 
 var space5_timing = [];
-space5_timing[0] = 0;
-space5_timing[1] = 0.25;
-space5_timing[2] = 0.75;
-space5_timing[3] = 1.25;
+space5_timing[0] = 0.05;
+space5_timing[1] = 0.1;
+space5_timing[2] = 0.15;
+space5_timing[3] = 0.2;
+space5_timing[4] = 0.75;
+space5_timing[5] = 1.17;
+space5_timing[6] = 1.25;
+space5_timing[7] = 1.75;
 
 
 var space6_text = [];
@@ -289,14 +269,18 @@ space6_timing[6] = 5;
 var space7_text = [];
 space7_text[0] = "Where am I?";
 space7_text[1] = "Guess.";
-space7_text[2] = "Guess. Guess. Guess.";
-space7_text[3] = "I'm in space.";
+space7_text[2] = "Guess.";
+space7_text[3] = "Guess.";
+space7_text[4] = "Guess.";
+space7_text[5] = "I'm in space.";
 
 var space7_timing = [];
 space7_timing[0] = 0;
 space7_timing[1] = 0.25;
 space7_timing[2] = 0.75;
-space7_timing[3] = 1.75;
+space7_timing[3] = 1;
+space7_timing[4] = 1.25;
+space7_timing[5] = 1.75;
 
 
 var space8_text = [];
@@ -305,8 +289,9 @@ space8_text[1] = "There's another one.";
 space8_text[2] = "Star.";
 space8_text[3] = "Star.";
 space8_text[4] = "Star.";
-space8_text[5] = "Star. Star.";
+space8_text[5] = "Star.";
 space8_text[6] = "Star.";
+space8_text[7] = "Star.";
 
 var space8_timing = [];
 space8_timing[0] = 0;
@@ -315,19 +300,20 @@ space8_timing[2] = 1.75;
 space8_timing[3] = 2.5;
 space8_timing[4] = 3.5;
 space8_timing[5] = 4.25;
-space8_timing[6] = 5.5;
+space8_timing[6] = 4.75;
+space8_timing[7] = 5.5;
 
 
 var space9_text = [];
-space9_text[0] = "SPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-space9_text[1] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-space9_text[2] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
-space9_text[3] = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAACE!";
+space9_text[0] = "SPAAAAAAAAAAAAAAAAAAAA";
+space9_text[1] = "AAAAAAAAAAAAAAAAAAAAAA";
+space9_text[2] = "AAAAAAAAAAAAAAAAAAAAAA";
+space9_text[3] = "AAAAAAAAAAAAAAAAAAACE!";
 
 var space9_timing = [];
-space9_timing[0] = 0;
-space9_timing[1] = 0.75;
-space9_timing[2] = 1.5;
+space9_timing[0] = 0.25;
+space9_timing[1] = 1;
+space9_timing[2] = 1.75;
 space9_timing[3] = 2.5;
 
 
