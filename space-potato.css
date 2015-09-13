@@ -7,6 +7,12 @@ html {
   height: 100vh;
 }
 
+#instructions {
+  text-align: center;
+  padding: 0.5rem;
+  opacity: 0.25;
+}
+
 .container {
   text-align: center;
 }
@@ -27,7 +33,7 @@ html {
 
 .char-img {
   display: inline-block;
-  padding: 4rem;
+  padding: 3.5rem;
   -webkit-transition: transform 0.25s ease-in-out;
   -moz-transition: transform 0.25s ease-in-out;
   -o-transition: transform 0.25s ease-in-out;
@@ -49,11 +55,11 @@ html {
   -moz-transition: transform 0.25s ease-in-out;
   -o-transition: transform 0.25s ease-in-out;
   transition: transform 0.25s ease-in-out;
-  -webkit-transform: translateY(10rem) scale(0.25, 0.25);
-  -moz-transform: translateY(10rem) scale(0.25, 0.25);
-  -ms-transform: translateY(10rem) scale(0.25, 0.25);
-  -o-transform: translateY(10rem) scale(0.25, 0.25);
-  transform: translateY(14rem) scale(0.25, 0.25);
+  -webkit-transform: translateY(13rem) scale(0.25, 0.25);
+  -moz-transform: translateY(13rem) scale(0.25, 0.25);
+  -ms-transform: translateY(13rem) scale(0.25, 0.25);
+  -o-transform: translateY(13rem) scale(0.25, 0.25);
+  transform: translateY(13rem) scale(0.25, 0.25);
 }
 
 /* radio controls */
@@ -62,50 +68,3 @@ audio {
   width: 15rem;
   margin: 0 auto;
 }
-
-/* dance */
-/*@-webkit-keyframes dance {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  25% {
-    -webkit-transform: rotate(0.25deg);
-    transform: rotate(0.25deg);
-  }
-  50% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  75% {
-    -webkit-transform: rotate(-0.5deg);
-    transform: rotate(-0.5deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes dance {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  25% {
-    -webkit-transform: rotate(0.25deg);
-    transform: rotate(0.25deg);
-  }
-  50% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  75% {
-    -webkit-transform: rotate(-0.5deg);
-    transform: rotate(-0.5deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}*/
