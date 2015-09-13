@@ -516,27 +516,46 @@ fact6_timing[4] = 3.25;
 
 
 var fact7_text = [];
-fact7_text[0] = "In Greek myth, Prometheus stole fire from the Gods and gave it to humankind. The jewelry he kept for himself.";
+fact7_text[0] = "In Greek myth,";
+fact7_text[1] = "Prometheus stole fire from the gods";
+fact7_text[2] = "and gave it to humankind.";
+fact7_text[3] = "The jewelry";
+fact7_text[4] = "he kept for himself.";
 
-var fact7_timing = [];
+var fact7_timing = []; // DONE
 fact7_timing[0] = 0;
-fact7_timing[1] = 1;
+fact7_timing[1] = 0.5;
+fact7_timing[2] = 2;
+fact7_timing[3] = 3.25;
+fact7_timing[4] = 3.75;
 
 
 var fact8_text = [];
-fact8_text[0] = "The first person to prove that cow's milk is drinkable was very, very thirsty.";
+fact8_text[0] = "The first person to prove that";
+fact8_text[1] = "cow's milk is drinkable";
+fact8_text[2] = "was very,";
+fact8_text[3] = "very";
+fact8_text[4] = "thirsty.";
 
-var fact8_timing = [];
+var fact8_timing = []; // DONE
 fact8_timing[0] = 0;
-fact8_timing[1] = 1;
+fact8_timing[1] = 0.75;
+fact8_timing[2] = 1.75;
+fact8_timing[3] = 2.25;
+fact8_timing[4] = 2.75;
 
 
 var fact9_text = [];
-fact9_text[0] = "At some point in their lives 1 in 6 children will be abducted by the Dutch.";
+fact9_text[0] = "At some point in their lives";
+fact9_text[1] = "1 in 6 children";
+fact9_text[2] = "will be abducted";
+fact9_text[3] = "by the Dutch.";
 
-var fact9_timing = [];
+var fact9_timing = []; // DONE
 fact9_timing[0] = 0;
-fact9_timing[1] = 1;
+fact9_timing[1] = 0.75;
+fact9_timing[2] = 1.5;
+fact9_timing[3] = 2;
 
 
 // MAPPING
