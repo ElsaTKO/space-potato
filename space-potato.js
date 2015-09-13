@@ -138,31 +138,16 @@ function playQuote() {
   console.log(quote_queue.length);
 }
 
-// $("#jpId").jPlayer( {
-//   ready: function () {
-//       $(this).jPlayer("setMedia", {
-//           mp3: audio_url
-//       });
-//   },
-//   volume: 1,
-//   supplied: "mp3",
-//   swfPath: "/js",
-//   consoleAlerts: true,
-//   errorAlerts: true,
-//   warningAlerts: true
-// });
-
-
 $("#jpId").bind($.jPlayer.event.timeupdate, function(event) {
-
-    if (event.jPlayer.status.currentTime >= timing[incrementor]) {
-
-      var line = $("<p>");
-      line.append(words[incrementor]);
-      textbox.append(line);
-
-      incrementor++;
-   }
+  // trigger text according to audio timing
+  if (event.jPlayer.status.currentTime >= timing[incrementor]) {
+    // add text to textbox
+    var line = $("<p>");
+    line.append(words[incrementor]);
+    textbox.append(line);
+    // wait for next que
+    incrementor++;
+  }
 });
 
 function getAudioSrc(quote) {
@@ -173,62 +158,8 @@ function getAudioSrc(quote) {
   return url;
 }
 
-// play quote through jPlayer
-// set media dynamically?
-
-// $("#jpId").jPlayer("setMedia", {mp3: audio_url }).jPlayer("play");
-
-// $("#trackSelect").change(function(e) {
-//      my_trackName.text($(this).val());
-//      my_jPlayer.jPlayer("setMedia", {
-//         mp3: $(this).find(':selected').attr("href")
-//      });
-//  });
-
-// Chell in the Rain version
-// -------------------------
-// $("#jpId").jPlayer( {
-//         ready: function () {
-//             $(this).jPlayer("setMedia", {
-//                 mp3: audio_url
-//             });
-//         },
-//         volume: 1,
-//         supplied: "mp3",
-//         swfPath: "/js"
-//     });
-
-// $("#jpId").bind($.jPlayer.event.timeupdate, function(event) {
-//      if (event.jPlayer.status.currentTime >= timings[currentTrigger] && nolyrics != true) {
-//          fireTrigger(currentTrigger);
-//          currentTrigger++;
-//      }
-//
-//
-//   });
-
-
-
-
-
-
-
-
-// my version WIP
-// --------------
-// incrementor = 0;
-// set jPlayer media url
-// play audio
-//
-// if (event.jPlayer.status.currentTime >= timings[incrementor]) {
-//   create p tag
-//   append text[incrementor] into p tag
-//   incrementor++
-// }
-
 function findText(quote) {
   var quote_id = quote.id; // "space1"
-  // var words = AudioToTextAndTimingMap[quote_id]; // space1_text
   var words = AudioToTextAndTimingMap[quote_id].text; // space1_text
   return words;
 }
@@ -248,30 +179,21 @@ function appendText(words) {
   }
 }
 
-// $(document).keypress(function() {
-//   stopPrevQuote();
-//   playQuote();
-// });
-
 $(document).keypress(function() {
   stopPrevQuote();
   repopulateQuotesHuh();
   var quote = quote_queue[0];
   last_quote = quote;
-  console.log(quote);
   removeAQuote(quote_queue);
 
+  // find matching objects from array mapping
   words = findText(quote);
   timing = findTiming(quote);
-  // appendText(words);
-  console.log(words);
-
   audio_url = getAudioSrc(quote);
-  console.log(audio_url);
-  // playQuote();
-  textbox.empty();
-  incrementor = 0;
-  $("#jpId").jPlayer("setMedia", { mp3: audio_url }).jPlayer("play", 0);
+
+  textbox.empty(); // remove last quote text
+  incrementor = 0; // start at beginning of text array
+  $("#jpId").jPlayer("setMedia", { mp3: audio_url }).jPlayer("play", 0); // play quote
 });
 
 
@@ -409,14 +331,6 @@ space9_timing[2] = 1.5;
 space9_timing[3] = 2.5;
 
 
-// factZ_timing[0] = 0;
-// factZ_timing[1] = 1;
-// factZ_timing[2] = 2;
-// factZ_timing[3] = 3;
-// factZ_timing[4] = 4;
-// factZ_timing[5] = 5;
-// factZ_timing[6] = 6;
-
 // fact core
 var fact1_text = [];
 fact1_text[0] = "Pants were invented";
@@ -426,14 +340,13 @@ fact1_text[3] = "It was believed that";
 fact1_text[4] = "the sight of naked sailors";
 fact1_text[5] = "angered the sea god.";
 
-var fact1_timing = []; // DONE
+var fact1_timing = [];
 fact1_timing[0] = 0;
 fact1_timing[1] = 0.25;
 fact1_timing[2] = 1.5;
 fact1_timing[3] = 2.75;
 fact1_timing[4] = 3.5;
 fact1_timing[5] = 4.25;
-// fact1_timing[6] = 6;
 
 
 var fact2_text = [];
@@ -442,7 +355,7 @@ fact2_text[1] = "are not magic.";
 fact2_text[2] = "Technically";
 fact2_text[3] = "they are sorcery.";
 
-var fact2_timing = []; // DONE
+var fact2_timing = [];
 fact2_timing[0] = 0;
 fact2_timing[1] = 0.75;
 fact2_timing[2] = 1.75;
@@ -458,7 +371,7 @@ fact3_text[4] = "by Francis Bacon,";
 fact3_text[5] = "who used a Ouija board";
 fact3_text[6] = "to enslave play-writing ghosts.";
 
-var fact3_timing = []; // DONE
+var fact3_timing = [];
 fact3_timing[0] = 0;
 fact3_timing[1] = 0.5;
 fact3_timing[2] = 1.5;
@@ -477,7 +390,7 @@ fact4_text[4] = "patented the activity three years earlier,";
 fact4_text[5] = "under the name";
 fact4_text[6] = "\"Tesla-cize.\"";
 
-var fact4_timing = []; // DONE
+var fact4_timing = [];
 fact4_timing[0] = 0;
 fact4_timing[1] = 0.75;
 fact4_timing[2] = 2;
@@ -493,7 +406,7 @@ fact5_text[1] = "are twice as intelligent";
 fact5_text[2] = "and three times as delicious";
 fact5_text[3] = "as humans.";
 
-var fact5_timing = []; // DONE
+var fact5_timing = [];
 fact5_timing[0] = 0;
 fact5_timing[1] = 0.25;
 fact5_timing[2] = 1;
@@ -507,7 +420,7 @@ fact6_text[2] = "in 1914.";
 fact6_text[3] = "Everyone involved";
 fact6_text[4] = "screamed the entire way.";
 
-var fact6_timing = []; // DONE
+var fact6_timing = [];
 fact6_timing[0] = 0;
 fact6_timing[1] = 1;
 fact6_timing[2] = 1.5;
@@ -522,7 +435,7 @@ fact7_text[2] = "and gave it to humankind.";
 fact7_text[3] = "The jewelry";
 fact7_text[4] = "he kept for himself.";
 
-var fact7_timing = []; // DONE
+var fact7_timing = [];
 fact7_timing[0] = 0;
 fact7_timing[1] = 0.5;
 fact7_timing[2] = 2;
@@ -537,7 +450,7 @@ fact8_text[2] = "was very,";
 fact8_text[3] = "very";
 fact8_text[4] = "thirsty.";
 
-var fact8_timing = []; // DONE
+var fact8_timing = [];
 fact8_timing[0] = 0;
 fact8_timing[1] = 0.75;
 fact8_timing[2] = 1.75;
@@ -551,7 +464,7 @@ fact9_text[1] = "1 in 6 children";
 fact9_text[2] = "will be abducted";
 fact9_text[3] = "by the Dutch.";
 
-var fact9_timing = []; // DONE
+var fact9_timing = [];
 fact9_timing[0] = 0;
 fact9_timing[1] = 0.75;
 fact9_timing[2] = 1.5;
