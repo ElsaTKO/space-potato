@@ -1,6 +1,6 @@
 # Space Potato
 ## A Portal 2 Quote-along Project
-## [See it now!](http://elsamoluf.github.io/)
+## [See it now!](http://elsatko.github.io/)
 
 ### Summary
 This project is a way to quote along with lines from the video game [Portal 2](http://www.thinkwithportals.com/). Lines from characters are provided simultaneously in audio and text formats. Audio pulled from [Portal 2 Sounds](http://www.portal2sounds.com/). Loosely inspired by [Chell in the Rain](http://sorrowind.net/vilify/).
